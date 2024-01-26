@@ -22,5 +22,5 @@ This project is of interest to me as I want to get better at typing, and some ex
 - As a user, I would like to be able to have an arbitrary number of code snippets rain down, so I can continuously engage with the game.
 - As a user, I would like to be able to see a list of incorrectly typed words at the end of the game to see where I can improve.
 - As a user, I would like to see the game difficulty progress as I go and be able to save checkpoints at regular intervals.
-- As a user, I would like to see power-ups that adds a layer of strategy and user engagement
+- As a user, I would like to see power-ups that adds a layer of strategy and user engagement.
 
