@@ -10,17 +10,17 @@ public class CodeSnippet {
     private int positionY;
     private int speed;
     private boolean hasBeenFullyTyped;
-    //private int powerupStatus;
+    private int powerUpStatus;
 
 
     //EFFECTS: Creates a CodeSnippet instance with an x,y position, speed and String to be typed
-    public CodeSnippet(int x, int y, int speed, String s) {
+    public CodeSnippet(int x, int y, int speed, String s, int powerUp) {
         this.snippet = s;
         this.positionX = x;
         this.positionY = y;
         this.speed = speed;
         this.hasBeenFullyTyped = false;
-        //this.powerupStatus = 0; //TODO we want powerup status to randomly generate
+        this.powerUpStatus = powerUp;
     }
 
     // getters and setters
@@ -48,7 +48,8 @@ public class CodeSnippet {
     }
 
 
-
+    //MODIFIES: this
+    //EFFECTS: Increases the Y-position by the speed
     public void move() {
         this.positionY = positionY + speed;
     }
@@ -62,6 +63,10 @@ public class CodeSnippet {
             return true;
         }
         return false;
+    }
+
+    public int getPowerupStatus() {
+        return this.powerUpStatus;
     }
 
 

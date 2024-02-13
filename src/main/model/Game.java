@@ -22,6 +22,8 @@ public class Game {
     private int levelCounter;
 
 
+
+
     public Game(int x, int y, long tickSpeed) {
         this.level = 1;
         this.gameOver = false;
@@ -32,8 +34,9 @@ public class Game {
         this.codeSnippetStrings = initializeCodeSnippets();
         this.player = new Player();
         this.incorrectlyTypedWords = new ArrayList<String>();
-
     }
+    //EFFECTS: first checks to see if game is over, then advances snippets and checks for ones that have reached end
+    // displays the snippets, handles user input, clears the screen and runs again
 
     public void runGame() throws InterruptedException, IOException {
         while (!gameOver) {
@@ -46,7 +49,7 @@ public class Game {
             ConsoleDisplay.clearConsole();
             incrementDifficulty();
         }
-        System.out.println("the incorrectly typed words were:" + incorrectlyTypedWords);
+        System.out.println("the incorrectly typed words were:" + incorrectlyTypedWords.toString());
     }
 
     public void tick() {
@@ -64,18 +67,24 @@ public class Game {
     }
 
     public CodeSnippet generateCodeSnippet() {
+        int powerUpStatus = ((int) (Math.random() * (10)));
         int x = (int) (Math.random() * (maxX + 1));
         int y = 0;
         int speed = (int) (Math.random() * (20));
         String string = codeSnippetStrings.get((int) (Math.random() * (10)));
-        CodeSnippet c = new CodeSnippet(x, y, speed, string);
+        CodeSnippet c = new CodeSnippet(x, y, speed, string, powerUpStatus);
         return c;
     }
+    // EFFECTS: if the input given matches one of the snippets, it will first check to see if there is a powerup,
+    // and apply if possible, else it will just remove the snippet.
 
     public void checkStringInput(String s) {
-
         for (CodeSnippet c : this.codeSnippets) {
             if (c.checkIfStringMatches(s)) {
+                if (c.getPowerupStatus() == 5) {
+                    codeSnippets.clear();
+                    break;
+                }
                 codeSnippets.remove(c);
                 break;
 
@@ -94,10 +103,10 @@ public class Game {
         list.add("a*=3;");
         list.add("a/=2;");
         list.add("a%=4;");
-        list.add("boolean b=!true;");
-        list.add("char c='A';");
+        list.add("b=!true;");
+        list.add("c='A';");
         list.add("c++;");
-        list.add("float f=1.5f;");
+        list.add("f=1.5f;");
         return list;
     }
 
@@ -109,7 +118,7 @@ public class Game {
     }
 
     public void checkGameOver() {
-        if (player.getHealth() == 0) {
+        if (player.getHealth() <= 0) {
             gameOver = true;
         }
     }

@@ -9,7 +9,14 @@ public class ConsoleDisplay {
 
     public static void displayCodeSnippets(ArrayList<CodeSnippet> codeSnippets) {
         for (CodeSnippet c: codeSnippets) {
-            System.out.println("Snippet:" + c.getString() + " | XPos:" + c.getPositionX() + " | YPos:" + c.getPositionY());
+            String powerUpStatus;
+            if (c.getPowerupStatus() == 5) {
+                powerUpStatus = "POWERUP";
+            } else {
+                powerUpStatus = "no powerup";
+            }
+            System.out.println("Snippet:" + c.getString() + " | XPos:" + c.getPositionX()
+                    + " | YPos:" + c.getPositionY() + " | " + powerUpStatus);
         }
     }
 
