@@ -1,7 +1,5 @@
 package model;
 
-import jdk.jshell.Snippet;
-
 public class CodeSnippet {
     // Represents a single code snippet moving across the screen.
 
@@ -9,7 +7,6 @@ public class CodeSnippet {
     private int positionX;
     private int positionY;
     private int speed;
-    private boolean hasBeenFullyTyped;
     private int powerUpStatus;
 
 
@@ -19,15 +16,11 @@ public class CodeSnippet {
         this.positionX = x;
         this.positionY = y;
         this.speed = speed;
-        this.hasBeenFullyTyped = false;
         this.powerUpStatus = powerUp;
     }
 
     // getters and setters
 
-    public boolean hasBeenFullyTyped() {
-        return this.hasBeenFullyTyped;
-    }
 
     public String getString() {
         return this.snippet;
@@ -47,6 +40,10 @@ public class CodeSnippet {
         return this.speed;
     }
 
+    public int getPowerUpStatus() {
+        return this.powerUpStatus;
+    }
+
 
     //MODIFIES: this
     //EFFECTS: Increases the Y-position by the speed
@@ -58,16 +55,13 @@ public class CodeSnippet {
         return s.equals(snippet);
     }
 
-    public boolean reachedEnd(int x, int y) {
-        if (this.positionX >= x || this.positionY >= y) {
+    public boolean reachedEnd(int y) {
+        if (this.positionY >= y) {
             return true;
         }
         return false;
     }
 
-    public int getPowerupStatus() {
-        return this.powerUpStatus;
-    }
 
 
 }

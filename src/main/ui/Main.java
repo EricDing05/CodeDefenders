@@ -5,15 +5,9 @@ import model.Game;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-        Game game = new Game(200, 200, 20);
-        try {
-            game.runGame();
-        } catch (InterruptedException e) {
-            System.out.println("error");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        TerminalGame game = new TerminalGame(200, 20000, 20);
+        game.runGame();
     }
 }
