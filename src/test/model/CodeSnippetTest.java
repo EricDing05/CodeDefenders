@@ -56,6 +56,13 @@ public class CodeSnippetTest {
         assertFalse(codeSnippet.checkIfStringMatches("noteric"));
     }
 
+    @Test
+    public void testFreeze() {
+        assertEquals(10, codeSnippet.getSpeed());
+        codeSnippet.freeze();
+        assertEquals(0, codeSnippet.getSpeed());
+    }
+
 
 
 }

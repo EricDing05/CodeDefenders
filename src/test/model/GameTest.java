@@ -120,8 +120,41 @@ public class GameTest {
     }
 
     @Test
-    public void testTick() {
+    public void testTickMoveNoneReachedEnd() {
+        CodeSnippet c = new CodeSnippet(10,10,10,"eric",1);
+        game.addCodeSnippet(c);
+        int originalPosition = c.getPositionY();
+        assertEquals(10, game.getPlayer().getHealth());
+        game.tick(1);
+        assertEquals(c.getPositionY(), originalPosition + c.getSpeed());
+    }
+
+    @Test
+    public void testTickMoveOneReachedEnd() {
+        CodeSnippet c = new CodeSnippet(10,210,10,"eric",1);
+        game.addCodeSnippet(c);
+        game.tick(1);
+        assertEquals(game.getPlayer().getHealth(), 0);
+        assertEquals(game.getCodeSnippets().size(), 1);
+        assertFalse(game.getCodeSnippets().contains(c));
+    }
+
+    @Test
+    public void testTickGenerateSnippet() {
         game.tick(1);
         assertEquals(1, game.getCodeSnippets().size());
+    }
+
+    @Test
+    public void testFreezeCodeSnippets() {
+        CodeSnippet testCodeSnippet = new CodeSnippet(0,0,10,"eric",1);
+        CodeSnippet testCodeSnippet2 = new CodeSnippet(0,0,100,"eric2",1);
+        game.addCodeSnippet(testCodeSnippet);
+        game.addCodeSnippet(testCodeSnippet2);
+        assertEquals(10, testCodeSnippet.getSpeed());
+        assertEquals(100, testCodeSnippet2.getSpeed());
+        game.freezeCodeSnippets();
+        assertEquals(0,testCodeSnippet.getSpeed());
+        assertEquals(0,testCodeSnippet2.getSpeed());
     }
 }

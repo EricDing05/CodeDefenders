@@ -59,9 +59,6 @@ public class Game {
         this.codeSnippets.add(c);
     }
 
-    public int getMaxY() {
-        return maxY;
-    }
 
     public Boolean getGameOver() {
         return gameOver;
@@ -162,8 +159,6 @@ public class Game {
     public void checkGameOver() {
         if (player.getHealth() <= 0) {
             gameOver = true;
-        } else {
-            gameOver = false;
         }
     }
 
@@ -200,78 +195,5 @@ public class Game {
         }
     }
 
-
-    // Below is code that has been refactored out of this class. Just keeping a copy here.
-    // TODO: move this to UI package
-//    public void handleInput() throws IOException {
-//        char input = HandleInput.handleInput(this.screen);
-//        if (input == ']') {
-//            return;
-//        }
-//        if (input == ' ') {
-//            checkStringInput(this.outputString);
-//            this.outputString = "";
-//            return;
-//        }
-//        this.outputString = this.outputString + input;
-//    }
-
-    //EFFECTS: first checks to see if game is over, then advances snippets and checks for ones that have reached end
-    // displays the snippets, handles user input, clears the screen and runs again
-    // TODO: move this to UI package
-
-//    public void runGame() throws IOException, InterruptedException {
-//        this.screen = new DefaultTerminalFactory()
-//                .setPreferTerminalEmulator(false)
-//                .setInitialTerminalSize(new TerminalSize(100, 40))
-//                .createScreen();
-//        screen.startScreen();
-//        screen.doResizeIfNecessary();
-//        screen.setCursorPosition(null);
-//
-//
-//        while (!gameOver) {
-//            checkGameOver();
-//            tick();
-//            ConsoleDisplay.displayCodeSnippets(codeSnippets, outputString);
-//            handleInput();
-//            Thread.sleep(300L);
-//            ConsoleDisplay.clearConsole();
-//            incrementDifficulty();
-//        }
-//        System.out.println("the incorrectly typed words were:" + incorrectlyTypedWords.toString());
-//    }
-
-    // TODO: move this to UI package
-//    public void tick() {
-//        generateCodeSnippetRandomly();
-//        ArrayList<CodeSnippet> toBeRemoved = new ArrayList<CodeSnippet>();
-//        for (CodeSnippet c : codeSnippets) {
-//            if (c.reachedEnd(maxY)) {
-//                player.takeDamage();
-//                toBeRemoved.add(c);
-//            }
-//            c.move();
-//        }
-//        codeSnippets.removeAll(toBeRemoved);
-//
-//    }
-    // EFFECTS: if the input given matches one of the snippets, it will first check to see if there is a powerup,
-    // and apply if possible, else it will just remove the snippet.
-
-//    public void checkStringInput(String s) {
-//        for (CodeSnippet c : this.codeSnippets) {
-//            if (c.checkIfStringMatches(s)) {
-//                if (c.getPowerUpStatus() == 5) {
-//                    codeSnippets.clear();
-//                    break;
-//                }
-//                codeSnippets.remove(c);
-//                break;
-//
-//            }
-//        }
-//        incorrectlyTypedWords.add(s);
-//    }
 
 }
