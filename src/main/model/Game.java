@@ -104,7 +104,6 @@ public class Game {
             c.move();
         }
         codeSnippets.removeAll(toBeRemoved);
-
     }
 
     //EFFECTS: generates a new code snippet at y=0, with random x position in range [0,maxX]
@@ -121,7 +120,7 @@ public class Game {
     }
 
 
-    // TODO: move this to UI package
+
     public ArrayList<String> initializeCodeSnippets() {
         ArrayList<String> list = new ArrayList<String>();
         list.add("int a=5;");
@@ -163,6 +162,8 @@ public class Game {
     public void checkGameOver() {
         if (player.getHealth() <= 0) {
             gameOver = true;
+        } else {
+            gameOver = false;
         }
     }
 
@@ -190,6 +191,12 @@ public class Game {
     public void removeLastCharOffOutputString() {
         if (!this.outputString.isEmpty()) {
             this.outputString = this.getOutputString().substring(0, (outputString.length() - 1));
+        }
+    }
+
+    public void freezeCodeSnippets() {
+        for (CodeSnippet c : this.codeSnippets) {
+            c.freeze();
         }
     }
 

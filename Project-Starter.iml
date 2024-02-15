@@ -28,5 +28,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="googlecode.lanterna" level="project" />
+    <orderEntry type="library" name="lanterna-3.1.2" level="project" />
   </component>
 </module>

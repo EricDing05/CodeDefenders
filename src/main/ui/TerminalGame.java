@@ -19,6 +19,8 @@ public class TerminalGame {
         this.game = new Game(x, y, tickSpeed);
     }
 
+
+    //Credit to lab 4 for the creation and instantiation of the screen
     public void runGame() throws IOException, InterruptedException {
         game.setScreen(new DefaultTerminalFactory()
                 .setPreferTerminalEmulator(false)
@@ -27,6 +29,7 @@ public class TerminalGame {
         game.getScreen().startScreen();
         game.getScreen().doResizeIfNecessary();
         game.getScreen().setCursorPosition(null);
+
         while (!game.getGameOver()) {
             game.checkGameOver();
             game.tick(40);
@@ -80,6 +83,8 @@ public class TerminalGame {
                 if (c.getPowerUpStatus() == 5) {
                     game.clearCodeSnippets();
                     break;
+                } else if (c.getPowerUpStatus() == 4) {
+                    game.freezeCodeSnippets();
                 }
                 game.removeCodeSnippet(c);
                 break;

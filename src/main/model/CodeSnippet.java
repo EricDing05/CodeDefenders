@@ -44,6 +44,10 @@ public class CodeSnippet {
         return this.powerUpStatus;
     }
 
+    public void freeze() {
+        this.speed = 0;
+    }
+
 
     //MODIFIES: this
     //EFFECTS: Increases the Y-position by the speed
@@ -51,10 +55,14 @@ public class CodeSnippet {
         this.positionY = positionY + speed;
     }
 
+
+    //EFFECTS: returns true if string s matches the CodeSnippets string
     public boolean checkIfStringMatches(String s) {
         return s.equals(snippet);
     }
 
+
+    //EFFECTS: returns true if the CodeSnippets Y position is greater than or equal to the given Y.
     public boolean reachedEnd(int y) {
         if (this.positionY >= y) {
             return true;

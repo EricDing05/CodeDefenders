@@ -11,7 +11,9 @@ public class ConsoleDisplay {
         for (CodeSnippet c: codeSnippets) {
             String powerUpStatus;
             if (c.getPowerUpStatus() == 5) {
-                powerUpStatus = "POWERUP";
+                powerUpStatus = "NUKE";
+            } else if (c.getPowerUpStatus() == 4) {
+                powerUpStatus = "freeze";
             } else {
                 powerUpStatus = "no powerup";
             }
@@ -21,9 +23,9 @@ public class ConsoleDisplay {
         System.out.println("Currently Typing: " + s);
     }
 
+    //EFFECTS: attempts to clear the screen by printing blank lines
     public static void clearConsole() {
-        // Attempt to clear the screen by printing new lines
-        for (int i = 0; i < 50; i++) { // Adjust the number of lines as needed
+        for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
