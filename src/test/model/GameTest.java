@@ -44,6 +44,13 @@ public class GameTest {
     }
 
     @Test
+    public void testCheckGameOverNotOver() {
+        assertFalse(game.getGameOver());
+        game.checkGameOver();
+        assertFalse(game.getGameOver());
+    }
+
+    @Test
     public void testGenerateCodeSnippet() {
         CodeSnippet reference = game.generateCodeSnippet(0,0,0,0);
         assertEquals(0, reference.getPositionX());
@@ -57,6 +64,13 @@ public class GameTest {
         assertTrue(game.getCodeSnippets().isEmpty());
         game.generateCodeSnippetRandomly(1);
         assertFalse(game.getCodeSnippets().isEmpty());
+    }
+
+    @Test
+    public void testGenerateCodeSnippetRandomlyNoGenerate() {
+        assertTrue(game.getCodeSnippets().isEmpty());
+        game.generateCodeSnippetRandomly(2147483647);
+        assertTrue(game.getCodeSnippets().isEmpty());
     }
 
     @Test

@@ -7,10 +7,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.screen.Screen;
 import model.CodeSnippet;
 import model.Game;
-import model.HandleInput;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class TerminalGame {
     private Game game;
