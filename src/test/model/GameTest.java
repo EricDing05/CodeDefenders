@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import com.googlecode.lanterna.screen.Screen;
 
 public class GameTest {
@@ -57,7 +58,7 @@ public class GameTest {
 
     @Test
     public void testGenerateCodeSnippet() {
-        CodeSnippet reference = game.generateCodeSnippet(0,0,0,0);
+        CodeSnippet reference = game.generateCodeSnippet(0, 0, 0, 0);
         assertEquals(0, reference.getPositionX());
         assertEquals(0, reference.getPositionY());
         assertEquals(5, reference.getSpeed());
@@ -90,7 +91,7 @@ public class GameTest {
 
     @Test
     public void testRemoveCodeSnippet() {
-        CodeSnippet c = new CodeSnippet(10,10,10,"eric", 1);
+        CodeSnippet c = new CodeSnippet(10, 10, 10, "eric", 1);
         assertTrue(game.getCodeSnippets().isEmpty());
         game.addCodeSnippet(c);
         assertFalse(game.getCodeSnippets().isEmpty());
@@ -109,7 +110,7 @@ public class GameTest {
     public void testRemoveLastCharOffOutputStringNotEmptyString() {
         assertEquals(game.getOutputString(), "");
         game.setOutputString("eric");
-        assertEquals("eric" , game.getOutputString());
+        assertEquals("eric", game.getOutputString());
         game.removeLastCharOffOutputString();
         assertEquals("eri", game.getOutputString());
     }
@@ -149,7 +150,7 @@ public class GameTest {
 
     @Test
     public void testTickMoveNoneReachedEnd() {
-        CodeSnippet c = new CodeSnippet(10,10,10,"eric",1);
+        CodeSnippet c = new CodeSnippet(10, 10, 10, "eric", 1);
         game.addCodeSnippet(c);
         int originalPosition = c.getPositionY();
         assertEquals(10, game.getPlayer().getHealth());
@@ -159,7 +160,7 @@ public class GameTest {
 
     @Test
     public void testTickMoveOneReachedEnd() {
-        CodeSnippet c = new CodeSnippet(10,210,10,"eric",1);
+        CodeSnippet c = new CodeSnippet(10, 210, 10, "eric", 1);
         game.addCodeSnippet(c);
         game.tick(1);
         assertEquals(game.getPlayer().getHealth(), 0);
@@ -175,15 +176,15 @@ public class GameTest {
 
     @Test
     public void testFreezeCodeSnippets() {
-        CodeSnippet testCodeSnippet = new CodeSnippet(0,0,10,"eric",1);
-        CodeSnippet testCodeSnippet2 = new CodeSnippet(0,0,100,"eric2",1);
+        CodeSnippet testCodeSnippet = new CodeSnippet(0, 0, 10, "eric", 1);
+        CodeSnippet testCodeSnippet2 = new CodeSnippet(0, 0, 100, "eric2", 1);
         game.addCodeSnippet(testCodeSnippet);
         game.addCodeSnippet(testCodeSnippet2);
         assertEquals(10, testCodeSnippet.getSpeed());
         assertEquals(100, testCodeSnippet2.getSpeed());
         game.freezeCodeSnippets();
-        assertEquals(0,testCodeSnippet.getSpeed());
-        assertEquals(0,testCodeSnippet2.getSpeed());
+        assertEquals(0, testCodeSnippet.getSpeed());
+        assertEquals(0, testCodeSnippet2.getSpeed());
     }
 
     @Test
@@ -193,7 +194,7 @@ public class GameTest {
                 .setInitialTerminalSize(new TerminalSize(100, 40))
                 .createScreen();
         game.setScreen(test);
-        assertEquals(test,game.getScreen());
+        assertEquals(test, game.getScreen());
     }
 
 
