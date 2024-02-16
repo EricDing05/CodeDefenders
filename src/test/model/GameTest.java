@@ -187,15 +187,15 @@ public class GameTest {
         assertEquals(0, testCodeSnippet2.getSpeed());
     }
 
-//    @Test
-//    public void testSetAndGetScreen() throws IOException {
-//        Screen test = new DefaultTerminalFactory()
-//                .setPreferTerminalEmulator(false)
-//                .setInitialTerminalSize(new TerminalSize(100, 40))
-//                .createScreen();
-//        game.setScreen(test);
-//        assertEquals(test, game.getScreen());
-//    }
+    @Test
+    public void testSetAndGetScreen() throws IOException {
+        Screen test = new DefaultTerminalFactory()
+                .setPreferTerminalEmulator(false)
+                .setInitialTerminalSize(new TerminalSize(100, 40))
+                .createScreen();
+        game.setScreen(test);
+        assertEquals(test, game.getScreen());
+    }
 
 
 }
