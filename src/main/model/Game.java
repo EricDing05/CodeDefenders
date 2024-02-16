@@ -90,6 +90,11 @@ public class Game {
 
     }
 
+
+    //REQUIRES: spawningOdds > 0
+    //MODIFIES: this, player
+    //EFFECTS: spawns a new CodeSnippet with 1/odds of spawning. Any code snippets that reach the end damage
+    // the player and are removed.
     public void tick(int spawningOdds) {
         generateCodeSnippetRandomly(spawningOdds);
         ArrayList<CodeSnippet> toBeRemoved = new ArrayList<CodeSnippet>();
@@ -117,7 +122,8 @@ public class Game {
     }
 
 
-
+    //MODIFIES: this
+    //EFFECTS: Creates the list of available code snippets for the game to select from.
     public ArrayList<String> initializeCodeSnippets() {
         ArrayList<String> list = new ArrayList<String>();
         list.add("int a=5;");
@@ -131,6 +137,16 @@ public class Game {
         list.add("c='A';");
         list.add("c++;");
         list.add("f=1.5f;");
+        list.add("if (x > y) return x;");
+        list.add("int sum = a + b;");
+        list.add("list.add(1);");
+        list.add("for (int i=0; i<5; i++) {}");
+        list.add("stack.push(10);");
+        list.add("boolean flag = false;");
+        list.add("list.remove(0);");
+        list.add("n /= 3;");
+        list.add("x %= 4;");
+
         return list;
     }
 
@@ -189,6 +205,8 @@ public class Game {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets the speed of all current code snippets to zero
     public void freezeCodeSnippets() {
         for (CodeSnippet c : this.codeSnippets) {
             c.freeze();

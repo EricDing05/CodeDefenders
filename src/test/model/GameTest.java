@@ -1,11 +1,16 @@
 package model;
 
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
+import com.googlecode.lanterna.screen.Screen;
 
 public class GameTest {
 
@@ -130,6 +135,15 @@ public class GameTest {
         list.add("c='A';");
         list.add("c++;");
         list.add("f=1.5f;");
+        list.add("if (x > y) return x;");
+        list.add("int sum = a + b;");
+        list.add("list.add(1);");
+        list.add("for (int i=0; i<5; i++) {}");
+        list.add("stack.push(10);");
+        list.add("boolean flag = false;");
+        list.add("list.remove(0);");
+        list.add("n /= 3;");
+        list.add("x %= 4;");
         assertEquals(list, game.initializeCodeSnippets());
     }
 
@@ -171,4 +185,16 @@ public class GameTest {
         assertEquals(0,testCodeSnippet.getSpeed());
         assertEquals(0,testCodeSnippet2.getSpeed());
     }
+
+    @Test
+    public void testSetAndGetScreen() throws IOException {
+        Screen test = new DefaultTerminalFactory()
+                .setPreferTerminalEmulator(false)
+                .setInitialTerminalSize(new TerminalSize(100, 40))
+                .createScreen();
+        game.setScreen(test);
+        assertEquals(test,game.getScreen());
+    }
+
+
 }

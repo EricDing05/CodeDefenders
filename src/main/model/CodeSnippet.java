@@ -44,6 +44,8 @@ public class CodeSnippet {
         return this.powerUpStatus;
     }
 
+    //MODIFIES: This
+    //EFFECTS: Sets speed to zero
     public void freeze() {
         this.speed = 0;
     }

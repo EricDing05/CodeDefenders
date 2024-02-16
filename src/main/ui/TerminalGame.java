@@ -19,6 +19,8 @@ public class TerminalGame {
 
 
     //Credit to lab 4 for the creation and instantiation of the screen
+    //MODIFIES: game
+    //EFFECTS: main loop of the game. Initializes the screen of the game. Runs the loop as long as !gameOver
     public void runGame() throws IOException, InterruptedException {
         game.setScreen(new DefaultTerminalFactory()
                 .setPreferTerminalEmulator(false)
@@ -40,17 +42,21 @@ public class TerminalGame {
         System.out.println("the incorrectly typed words were:" + game.getIncorrectlyTypedWords().toString());
     }
 
+
+    // MODIFIES: game
+    // EFFECTS: take the input read from pollInput and processes it
     public void handleInput() throws IOException {
         char input = pollInput(game.getScreen());
         if (input == ']') {
             return;
         }
+
         if (input == '[') {
             game.removeLastCharOffOutputString();
             return;
         }
 
-        if (input == ' ') {
+        if (input == '`') {
             checkStringInput(game.getOutputString());
             game.setOutputString("");
             return;
@@ -58,9 +64,9 @@ public class TerminalGame {
         game.setOutputString(game.getOutputString() + input);
     }
 
+    //EFFECTS: reads user input from the screen
     public static char pollInput(Screen s) throws IOException {
         KeyStroke k = s.pollInput();
-
 
         if (k == null || k.getCharacter() == null) {
             return ']';
@@ -68,13 +74,17 @@ public class TerminalGame {
         if (k.getKeyType() == KeyType.Backspace) {
             return '[';
         }
-
+        if (k.getKeyType() == KeyType.Enter) {
+            return '`';
+        }
 
         char c = k.getCharacter();
         return c;
     }
 
-
+    //MODIFIES: game
+    //EFFECTS: given a string s, removes s from CodeSnippets if a match is found. In the case of two matching strings,
+    // it will take the first. Also handles powerUp behavior.
     public void checkStringInput(String s) {
         for (CodeSnippet c : game.getCodeSnippets()) {
             if (c.checkIfStringMatches(s)) {
