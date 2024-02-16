@@ -25,7 +25,7 @@ public class CodeSnippet {
     public String getString() {
         return this.snippet;
     }
-    
+
 
     public int getPositionX() {
         return this.positionX;
@@ -71,7 +71,6 @@ public class CodeSnippet {
         }
         return false;
     }
-
 
 
 }

@@ -3,6 +3,7 @@ package model;
 import model.CodeSnippet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CodeSnippetTest {
@@ -12,7 +13,7 @@ public class CodeSnippetTest {
 
     @BeforeEach
     public void setUp() {
-        this.codeSnippet = new CodeSnippet(0,0,10, "eric", 1);
+        this.codeSnippet = new CodeSnippet(0, 0, 10, "eric", 1);
     }
 
 
@@ -62,7 +63,6 @@ public class CodeSnippetTest {
         codeSnippet.freeze();
         assertEquals(0, codeSnippet.getSpeed());
     }
-
 
 
 }

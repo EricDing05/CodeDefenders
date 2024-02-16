@@ -165,7 +165,7 @@ public class Game {
     public void generateCodeSnippetRandomly(int odds) {
         int chanceOfSpawning = ((int) (Math.random() * (odds)));
         if (chanceOfSpawning <= 1) {
-            CodeSnippet c = generateCodeSnippet(this.maxX, 10, 20,10);
+            CodeSnippet c = generateCodeSnippet(this.maxX, 10, 20, 10);
             this.codeSnippets.add(c);
         }
     }

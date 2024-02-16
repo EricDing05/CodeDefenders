@@ -8,7 +8,7 @@ public class ConsoleDisplay {
 
     //EFFECTS: displays the current CodeSnippets as well as the currently typed word
     public static void displayCodeSnippets(ArrayList<CodeSnippet> codeSnippets, String s) {
-        for (CodeSnippet c: codeSnippets) {
+        for (CodeSnippet c : codeSnippets) {
             String powerUpStatus;
             if (c.getPowerUpStatus() == 5) {
                 powerUpStatus = "NUKE";
