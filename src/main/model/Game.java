@@ -76,6 +76,8 @@ public class Game {
         return this.tickSpeed;
     }
 
+
+    //EFFECTS: Creates an instance of the game
     public Game(int x, int y, long tickSpeed) {
         this.levelCounter = 0;
         this.gameOver = false;
@@ -150,10 +152,11 @@ public class Game {
         return list;
     }
 
-    //MODIFIES: This
-    //EFFECTS: increments the game tick-speed after the level counter equals 10 and resets the level counter
 
+    //MODIFIES: This
+    //EFFECTS: increments the LevelCounter, increments tickSpeed when LevelCounter reaches 10
     public void incrementDifficulty() {
+        increaseLevelCounter();
         if (this.levelCounter == 10) {
             this.tickSpeed = this.tickSpeed + 5;
             this.levelCounter = 0;

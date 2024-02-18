@@ -25,18 +25,17 @@ public class GameTest {
 
     @Test
     public void testIncrementDifficulty() {
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
-        game.increaseLevelCounter();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
+        game.incrementDifficulty();
         game.incrementDifficulty();
         assertEquals(game.getTickSpeed(), 10L);
-        game.increaseLevelCounter();
+        game.incrementDifficulty();
         game.incrementDifficulty();
         assertEquals(game.getTickSpeed(), 15L);
     }

@@ -21,7 +21,6 @@ public class CodeSnippet {
 
     // getters and setters
 
-
     public String getString() {
         return this.snippet;
     }
