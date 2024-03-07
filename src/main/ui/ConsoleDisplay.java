@@ -5,6 +5,7 @@ import model.CodeSnippet;
 import java.util.ArrayList;
 
 public class ConsoleDisplay {
+    //Represents the console display
 
     //EFFECTS: displays the current CodeSnippets as well as the currently typed word
     public static void displayCodeSnippets(ArrayList<CodeSnippet> codeSnippets, String s) {

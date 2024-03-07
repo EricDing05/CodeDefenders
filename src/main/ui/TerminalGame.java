@@ -11,6 +11,7 @@ import model.Game;
 import java.io.IOException;
 
 public class TerminalGame {
+    // Represents the UI handling of the user for the game
     private Game game;
 
     public TerminalGame(int x, int y, long tickSpeed) {

@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.googlecode.lanterna.screen.Screen;
 
 public class GameTest {
+    // Tests for Game
 
     private Game game;
 
