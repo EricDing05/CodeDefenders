@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,5 +33,26 @@ public class PlayerTest {
         player.takeDamage();
         assertEquals(0, player.getHealth());
 
+    }
+
+    @Test
+    public void testGetScore() {
+        assertEquals(0, player.getScore());
+    }
+
+    @Test
+    public void testSetScore() {
+        assertEquals(0, player.getScore());
+        player.setScore(100);
+        assertEquals(100, player.getScore());
+    }
+
+    @Test
+    public void testToJson() {
+        player.setScore(100);
+        player.setHealth(10);
+        JSONObject json = player.toJson();
+        assertEquals(10, json.getInt("health"));
+        assertEquals(100, json.getInt("score"));
     }
 }

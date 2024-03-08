@@ -26,6 +26,10 @@ public class Player {
         this.score = score;
     }
 
+    public int getScore() {
+        return this.score;
+    }
+
     public void takeDamage() {
         this.health = this.health - 10;
     }
