@@ -25,7 +25,7 @@ class JsonReaderTest {
 
     @Test
     public void testReadEmptyGame() throws IOException {
-        String path = "./data/baseGameDataReader.json"; // Update this path
+        String path = "./data/baseGameDataReader.json";
         JsonReader reader = new JsonReader(path);
         Game game = reader.read();
 

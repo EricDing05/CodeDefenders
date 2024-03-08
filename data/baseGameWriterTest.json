@@ -1,0 +1,12 @@
+{
+    "codeSnippets": [],
+    "x": 800,
+    "y": 600,
+    "tickSpeed": 100,
+    "incorrectSnippet": [],
+    "levelCounter": 1,
+    "player": {
+        "score": 0,
+        "health": 10
+    }
+}

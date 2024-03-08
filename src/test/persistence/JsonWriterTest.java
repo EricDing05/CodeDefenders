@@ -31,13 +31,13 @@ public class JsonWriterTest {
         game.setLevelCounter(1);
 
         // Write the Game to a JSON file
-        JsonWriter writer = new JsonWriter("baseGameWriterTest");
+        JsonWriter writer = new JsonWriter("./data/baseGameWriterTest.json");
         writer.open();
         writer.write(game);
         writer.close();
 
         // Read the JSON file back into a Game object
-        JsonReader reader = new JsonReader("baseGameWriterTest");
+        JsonReader reader = new JsonReader("./data/baseGameWriterTest.json");
         Game readGame = reader.read();
 
         // Assert that the properties match
@@ -77,12 +77,12 @@ public class JsonWriterTest {
     @Test
     public void testComplicatedGameSettings() throws IOException {
         Game game = createComplicatedGame(); // This method sets up a complicated game instance
-        JsonWriter writer = new JsonWriter("complexGameWriterTest");
+        JsonWriter writer = new JsonWriter("./data/complexGameWriterTest.json");
         writer.open();
         writer.write(game);
         writer.close();
 
-        JsonReader reader = new JsonReader("complexGameWriterTest");
+        JsonReader reader = new JsonReader("./data/complexGameWriterTest.json");
         Game readGame = reader.read();
 
         assertEquals(game.getMaxX(), readGame.getMaxX());
@@ -93,12 +93,12 @@ public class JsonWriterTest {
     @Test
     public void testComplicatedGamePlayerProperties() throws IOException {
         Game game = createComplicatedGame(); // Setup complicated game
-        JsonWriter writer = new JsonWriter("complexGameWriterTest");
+        JsonWriter writer = new JsonWriter("./data/complexGameWriterTest.json");
         writer.open();
         writer.write(game);
         writer.close();
 
-        JsonReader reader = new JsonReader("complexGameWriterTest");
+        JsonReader reader = new JsonReader("./data/complexGameWriterTest.json");
         Game readGame = reader.read();
 
         assertEquals(game.getPlayer().getScore(), readGame.getPlayer().getScore());
@@ -108,12 +108,12 @@ public class JsonWriterTest {
     @Test
     public void testComplicatedGameCodeSnippets() throws IOException {
         Game game = createComplicatedGame(); // Setup complicated game
-        JsonWriter writer = new JsonWriter("complexGameWriterTest");
+        JsonWriter writer = new JsonWriter("./data/complexGameWriterTest.json");
         writer.open();
         writer.write(game);
         writer.close();
 
-        JsonReader reader = new JsonReader("complexGameWriterTest");
+        JsonReader reader = new JsonReader("./data/complexGameWriterTest.json");
         Game readGame = reader.read();
 
         assertEquals(game.getCodeSnippets().size(), readGame.getCodeSnippets().size());
@@ -122,17 +122,16 @@ public class JsonWriterTest {
     @Test
     public void testComplicatedGameIncorrectlyTypedWords() throws IOException {
         Game game = createComplicatedGame(); // Setup complicated game
-        JsonWriter writer = new JsonWriter("complexGameWriterTest");
+        JsonWriter writer = new JsonWriter("./data/complexGameWriterTest.json");
         writer.open();
         writer.write(game);
         writer.close();
 
-        JsonReader reader = new JsonReader("complexGameWriterTest");
+        JsonReader reader = new JsonReader("./data/complexGameWriterTest.json");
         Game readGame = reader.read();
 
         assertEquals(game.getIncorrectlyTypedWords().size(), readGame.getIncorrectlyTypedWords().size());
     }
-
 
 
 

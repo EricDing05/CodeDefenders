@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
+    // Tests for player
 
     Player player;
 
@@ -56,3 +57,4 @@ public class PlayerTest {
         assertEquals(100, json.getInt("score"));
     }
 }
+
