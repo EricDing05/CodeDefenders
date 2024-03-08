@@ -36,6 +36,14 @@ public class Game {
         return this.player;
     }
 
+    public int getMaxX() {
+        return this.maxX;
+    }
+
+    public int getMaxY() {
+        return this.maxY;
+    }
+
     public void setPlayer(Player p) {
         this.player = p;
     }

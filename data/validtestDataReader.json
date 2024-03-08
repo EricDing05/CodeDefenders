@@ -1,0 +1,27 @@
+{
+  "x": 1024,
+  "y": 768,
+  "tickSpeed": 50,
+  "levelCounter": 3,
+  "player": {
+    "score": 150,
+    "health": 80
+  },
+  "incorrectSnippet": ["wrong1", "wrong2"],
+  "codeSnippets": [
+    {
+      "x": 100,
+      "y": 200,
+      "speed": 5,
+      "snippet": "System.out.println();",
+      "powerUpStatus": 0
+    },
+    {
+      "x": 300,
+      "y": 400,
+      "speed": 3,
+      "snippet": "int i = 0;",
+      "powerUpStatus": 1
+    }
+  ]
+}
