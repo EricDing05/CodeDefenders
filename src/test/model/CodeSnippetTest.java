@@ -1,6 +1,7 @@
 package model;
 
 import model.CodeSnippet;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -63,6 +64,16 @@ public class CodeSnippetTest {
         assertEquals(10, codeSnippet.getSpeed());
         codeSnippet.freeze();
         assertEquals(0, codeSnippet.getSpeed());
+    }
+
+    @Test
+    public void testTOJson() {
+        JSONObject json = codeSnippet.toJson();
+        assertEquals("eric", json.getString("snippet"));
+        assertEquals(0, json.getInt("x"));
+        assertEquals(0, json.getInt("y"));
+        assertEquals(10, json.getInt("speed"));
+        assertEquals(1, json.getInt("powerUpStatus"));
     }
 
 

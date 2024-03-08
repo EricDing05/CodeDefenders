@@ -78,6 +78,10 @@ public class Game {
         this.levelCounter = count;
     }
 
+    public int getLevelCounter() {
+        return this.levelCounter;
+    }
+
     public ArrayList<String> getIncorrectlyTypedWords() {
         return this.incorrectlyTypedWords;
     }

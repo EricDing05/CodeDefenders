@@ -2,6 +2,7 @@ package model;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
+import org.json.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,40 @@ public class GameTest {
     @BeforeEach
     public void setUp() {
         this.game = new Game(200, 200, 10);
+    }
+
+    @Test
+    public void testSetPlayer() {
+        Player p = new Player();
+        p.setScore(100);
+        game.setPlayer(p);
+        assertEquals(p, game.getPlayer());
+    }
+
+    @Test
+    public void testSetLevelCounter() {
+        assertEquals(game.getLevelCounter(), 0);
+        game.setLevelCounter(100);
+        assertEquals(game.getLevelCounter(), 100);
+    }
+
+    @Test
+    public void testSetIncorrectlyTypedWords() {
+        assertEquals(game.getIncorrectlyTypedWords(), new ArrayList<>());
+        ArrayList myList = new ArrayList<String>();
+        myList.add("eric");
+        myList.add("bob");
+        game.setIncorrectlyTypedWords(myList);
+        assertEquals(game.getIncorrectlyTypedWords(), myList);
+    }
+
+    @Test
+    public void testSetCodeSnippets() {
+        assertEquals(game.getCodeSnippets(), new ArrayList<>());
+        ArrayList myList = new ArrayList<String>();
+        myList.add(new CodeSnippet(1,1,1,"eric",2));
+        game.setCodeSnippets(myList);
+        assertEquals(game.getCodeSnippets(), myList);
     }
 
 
@@ -188,14 +223,36 @@ public class GameTest {
     }
 
     @Test
-    public void testSetAndGetScreen() throws IOException {
-        Screen test = new DefaultTerminalFactory()
-                .setPreferTerminalEmulator(false)
-                .setInitialTerminalSize(new TerminalSize(100, 40))
-                .createScreen();
+    public void testSetAndGetScreen() {
+        Screen test = null;
+        try {
+            test = new DefaultTerminalFactory()
+                    .setPreferTerminalEmulator(false)
+                    .setInitialTerminalSize(new TerminalSize(100, 40))
+                    .createScreen();
+        } catch (IOException e) {
+            fail();
+        }
         game.setScreen(test);
         assertEquals(test, game.getScreen());
     }
 
-
+    @Test
+    public void testToJson() {
+        game.addIncorrectWord("example");
+        JSONObject json = game.toJson();
+        assertEquals(200, json.getInt("x"));
+        assertEquals(200, json.getInt("y"));
+        assertEquals(10, json.getInt("tickSpeed"));
+        assertEquals(0, json.getInt("levelCounter"));
+        JSONObject jsonPlayer = json.getJSONObject("player");
+        assertEquals(10, jsonPlayer.getInt("health"));
+        assertEquals(0, jsonPlayer.getInt("score"));
+        JSONArray jsonSnippets = json.getJSONArray("codeSnippets");
+        JSONArray jsonIncorrectWords = json.getJSONArray("incorrectSnippet");
+        assertTrue(jsonIncorrectWords.toList().contains("example"));
+    }
 }
+
+
+
