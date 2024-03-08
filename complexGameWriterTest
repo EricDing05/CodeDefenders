@@ -1,0 +1,37 @@
+{
+    "codeSnippets": [
+        {
+            "snippet": "int i = 0;",
+            "x": 100,
+            "y": 0,
+            "speed": 5,
+            "powerUpStatus": 0
+        },
+        {
+            "snippet": "i++;",
+            "x": 200,
+            "y": 0,
+            "speed": 5,
+            "powerUpStatus": 1
+        },
+        {
+            "snippet": "System.out.println(i);",
+            "x": 300,
+            "y": 0,
+            "speed": 5,
+            "powerUpStatus": 2
+        }
+    ],
+    "x": 1024,
+    "y": 768,
+    "tickSpeed": 60,
+    "incorrectSnippet": [
+        "intt",
+        "Sytem.out.println(i);"
+    ],
+    "levelCounter": 5,
+    "player": {
+        "score": 120,
+        "health": 80
+    }
+}
