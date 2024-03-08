@@ -252,6 +252,15 @@ public class GameTest {
         JSONArray jsonIncorrectWords = json.getJSONArray("incorrectSnippet");
         assertTrue(jsonIncorrectWords.toList().contains("example"));
     }
+
+    @Test
+    public void testCodeSnippetsToJson() {
+        game.addCodeSnippet(new CodeSnippet(1,1,1,"eric", 1));
+        game.addCodeSnippet(new CodeSnippet(1,1,1,"eric2", 1));
+        game.addCodeSnippet(new CodeSnippet(1,1,1,"eric3", 1));
+        JSONArray json = game.codeSnippetsToJson();
+        assertEquals(3, json.length());
+    }
 }
 
 
