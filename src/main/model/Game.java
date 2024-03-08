@@ -249,7 +249,6 @@ public class Game {
         json.put("player", this.player.toJson());
         json.put("incorrectSnippet", new JSONArray(this.incorrectlyTypedWords));
         return json;
-        //TODO
     }
 
     public JSONArray codeSnippetsToJson() {
