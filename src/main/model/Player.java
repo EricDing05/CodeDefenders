@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 public class Player {
     // represents the player in the game
 
@@ -22,5 +24,12 @@ public class Player {
 
     public void takeDamage() {
         this.health = this.health - 10;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("health", this.health);
+        json.put("score", this.score);
+        return json;
     }
 }

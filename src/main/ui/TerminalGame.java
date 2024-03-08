@@ -7,15 +7,23 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.screen.Screen;
 import model.CodeSnippet;
 import model.Game;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TerminalGame {
     // Represents the UI handling of the user for the game
     private Game game;
+    private JsonReader reader;
+    private JsonWriter writer;
+    private static final String JSON_STORE = "./data/game.json";
 
     public TerminalGame(int x, int y, long tickSpeed) {
         this.game = new Game(x, y, tickSpeed);
+        this.reader = new JsonReader(JSON_STORE);
+        this.writer = new JsonWriter(JSON_STORE);
     }
 
 
@@ -87,6 +95,12 @@ public class TerminalGame {
     //EFFECTS: given a string s, removes s from CodeSnippets if a match is found. In the case of two matching strings,
     // it will take the first. Also handles powerUp behavior.
     public void checkStringInput(String s) {
+        if (game.getOutputString().equals("save")) {
+            saveGame();
+        }
+        if (game.getOutputString().equals("load")) {
+            loadGame();
+        }
         for (CodeSnippet c : game.getCodeSnippets()) {
             if (c.checkIfStringMatches(s)) {
                 if (c.getPowerUpStatus() == 5) {
@@ -97,9 +111,35 @@ public class TerminalGame {
                 }
                 game.removeCodeSnippet(c);
                 break;
-
             }
         }
         game.addIncorrectWord(s);
+    }
+
+    private void saveGame() {
+        try {
+            writer.open();
+            writer.write(game);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write file");
+        }
+    }
+
+    private void loadGame() {
+        try {
+            game = reader.read();
+            System.out.println("loaded the last save");
+            game.setScreen(new DefaultTerminalFactory()
+                    .setPreferTerminalEmulator(false)
+                    .setInitialTerminalSize(new TerminalSize(100, 40))
+                    .createScreen());
+            game.getScreen().startScreen();
+            game.getScreen().doResizeIfNecessary();
+            game.getScreen().setCursorPosition(null);
+        } catch (IOException e) {
+            System.out.println("Unable to read file");
+        }
+
     }
 }

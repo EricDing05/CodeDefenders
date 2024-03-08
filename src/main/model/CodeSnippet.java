@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 public class CodeSnippet {
     // Represents a single code snippet moving across the screen.
 
@@ -69,6 +71,16 @@ public class CodeSnippet {
             return true;
         }
         return false;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("snippet", this.snippet);
+        json.put("x", this.positionX);
+        json.put("y", this.positionY);
+        json.put("speed", this.speed);
+        json.put("powerUpStatus", this.powerUpStatus);
+        return json;
     }
 
 

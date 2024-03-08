@@ -1,0 +1,48 @@
+{
+    "codeSnippets": [
+        {
+            "snippet": "--a;",
+            "x": 51,
+            "y": 1050,
+            "speed": 7,
+            "powerUpStatus": 0
+        },
+        {
+            "snippet": "a/=2;",
+            "x": 6,
+            "y": 1284,
+            "speed": 12,
+            "powerUpStatus": 3
+        },
+        {
+            "snippet": "c='A';",
+            "x": 88,
+            "y": 1162,
+            "speed": 14,
+            "powerUpStatus": 0
+        },
+        {
+            "snippet": "a++;",
+            "x": 133,
+            "y": 768,
+            "speed": 12,
+            "powerUpStatus": 8
+        },
+        {
+            "snippet": "--a;",
+            "x": 198,
+            "y": 640,
+            "speed": 16,
+            "powerUpStatus": 8
+        }
+    ],
+    "x": 200,
+    "y": 6000,
+    "tickSpeed": 77,
+    "incorrectSnippet": ["load"],
+    "levelCounter": 6,
+    "player": {
+        "score": 0,
+        "health": 10
+    }
+}

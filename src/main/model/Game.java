@@ -11,13 +11,15 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import model.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 public class Game {
     //Represents the CodeDefenders game
 
     private Player player;
-    private final ArrayList<CodeSnippet> codeSnippets;
+    private ArrayList<CodeSnippet> codeSnippets;
     private final ArrayList<String> codeSnippetStrings;
     private int level;
     private Boolean gameOver;
@@ -75,6 +77,11 @@ public class Game {
     public long getTickSpeed() {
         return this.tickSpeed;
     }
+
+    public void setCodeSnippets(ArrayList<CodeSnippet> codeSnippets) {
+        this.codeSnippets = codeSnippets;
+    }
+
 
 
     //EFFECTS: Creates an instance of the game
@@ -215,6 +222,30 @@ public class Game {
             c.freeze();
         }
     }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("x", this.maxX);
+        json.put("y", this.maxY);
+        json.put("tickSpeed", this.tickSpeed);
+        json.put("levelCounter", this.levelCounter);
+        json.put("codeSnippets", codeSnippetsToJson());
+        json.put("player", this.player.toJson());
+        json.put("incorrectSnippet", new JSONArray(this.incorrectlyTypedWords));
+        return json;
+        //TODO
+    }
+
+    public JSONArray codeSnippetsToJson() {
+        JSONArray json = new JSONArray();
+        for (CodeSnippet c : this.codeSnippets) {
+            json.put(c.toJson());
+        }
+        return json;
+    }
+
+
+
 
 
 }
