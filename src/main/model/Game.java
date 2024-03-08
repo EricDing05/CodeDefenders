@@ -36,6 +36,10 @@ public class Game {
         return this.player;
     }
 
+    public void setPlayer(Player p) {
+        this.player = p;
+    }
+
     public ArrayList<CodeSnippet> getCodeSnippets() {
         return this.codeSnippets;
     }
@@ -70,8 +74,16 @@ public class Game {
         this.levelCounter++;
     }
 
+    public void setLevelCounter(int count) {
+        this.levelCounter = count;
+    }
+
     public ArrayList<String> getIncorrectlyTypedWords() {
         return this.incorrectlyTypedWords;
+    }
+
+    public void setIncorrectlyTypedWords(ArrayList<String> words) {
+        this.incorrectlyTypedWords = words;
     }
 
     public long getTickSpeed() {

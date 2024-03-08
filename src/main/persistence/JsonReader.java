@@ -54,6 +54,28 @@ public class JsonReader {
     // TODO, load the saved objects of the game into the game
         // load code snippets, player, level-counter, incorrect words
         g.setCodeSnippets(getCodeSnippets(j));
+        g.setLevelCounter(j.getInt("levelCounter"));
+        g.setPlayer(getPlayer(j));
+        g.setIncorrectlyTypedWords(getIncorrectWords(j));
+    }
+
+    private Player getPlayer(JSONObject j) {
+        Player p = new Player();
+        int score = j.getJSONObject("player").getInt("score");
+        int health = j.getJSONObject("player").getInt("health");
+        p.setScore(score);
+        p.setHealth(health);
+        return p;
+    }
+
+    private ArrayList<String> getIncorrectWords(JSONObject j) {
+        ArrayList<String> list = new ArrayList<String>();
+        JSONArray jsonArray = j.getJSONArray("incorrectSnippet");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            String word = jsonArray.getString(i);
+            list.add(word);
+        }
+        return list;
     }
 
     private ArrayList<CodeSnippet> getCodeSnippets(JSONObject j) {

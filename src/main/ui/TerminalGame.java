@@ -95,14 +95,18 @@ public class TerminalGame {
     //EFFECTS: given a string s, removes s from CodeSnippets if a match is found. In the case of two matching strings,
     // it will take the first. Also handles powerUp behavior.
     public void checkStringInput(String s) {
+        boolean isCorrect = false;
         if (game.getOutputString().equals("save")) {
             saveGame();
+            isCorrect = true;
         }
         if (game.getOutputString().equals("load")) {
             loadGame();
+            isCorrect = true;
         }
         for (CodeSnippet c : game.getCodeSnippets()) {
             if (c.checkIfStringMatches(s)) {
+                isCorrect = true;
                 if (c.getPowerUpStatus() == 5) {
                     game.clearCodeSnippets();
                     break;
@@ -113,7 +117,13 @@ public class TerminalGame {
                 break;
             }
         }
-        game.addIncorrectWord(s);
+        addWordIfNotCorrect(isCorrect, s);
+    }
+
+    private void addWordIfNotCorrect(Boolean b, String s) {
+        if (!b) {
+            game.addIncorrectWord(s);
+        }
     }
 
     private void saveGame() {
