@@ -21,6 +21,7 @@ public class ConsoleDisplay {
             System.out.println("Snippet:" + c.getString() + " | XPos:" + c.getPositionX()
                     + " | YPos:" + c.getPositionY() + " | " + powerUpStatus);
         }
+        System.out.println("Type \"save\" to save, \"load\" to load");
         System.out.println("Currently Typing: " + s);
     }
 

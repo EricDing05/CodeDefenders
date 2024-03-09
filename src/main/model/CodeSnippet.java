@@ -27,11 +27,9 @@ public class CodeSnippet {
         return this.snippet;
     }
 
-
     public int getPositionX() {
         return this.positionX;
     }
-
 
     public int getPositionY() {
         return this.positionY;
@@ -73,6 +71,7 @@ public class CodeSnippet {
         return false;
     }
 
+    // EFFECTS: Returns this as a JSON object.
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("snippet", this.snippet);

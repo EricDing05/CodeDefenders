@@ -120,12 +120,14 @@ public class TerminalGame {
         addWordIfNotCorrect(isCorrect, s);
     }
 
+    // EFFECTS: adds a word to the list of incorrect words if it is not correct
     private void addWordIfNotCorrect(Boolean b, String s) {
         if (!b) {
             game.addIncorrectWord(s);
         }
     }
 
+    // EFFECTS: Saves the game to file
     private void saveGame() {
         try {
             writer.open();
@@ -136,6 +138,7 @@ public class TerminalGame {
         }
     }
 
+    // EFFECTS: Loads the game from a previous save
     private void loadGame() {
         try {
             game = reader.read();

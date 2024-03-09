@@ -9,10 +9,13 @@ public class Player {
     private int score;
 
 
+    // EFFECTS: Creates a player with 10 health and 0 score.
     public Player() {
         this.health = 10;
         this.score = 0;
     }
+
+    //Getters and setters:
 
     public int getHealth() {
         return health;
@@ -34,6 +37,8 @@ public class Player {
         this.health = this.health - 10;
     }
 
+
+    // EFFECTS: returns this as a JSON Object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("health", this.health);

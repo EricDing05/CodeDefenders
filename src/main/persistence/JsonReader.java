@@ -51,15 +51,15 @@ public class JsonReader {
         return g;
     }
 
+    // EFFECTS: Parses data from the given JSONObject and sets the fields of the game accordingly
     private void initializeGame(Game g, JSONObject j) {
-    // TODO, load the saved objects of the game into the game
-        // load code snippets, player, level-counter, incorrect words
         g.setCodeSnippets(getCodeSnippets(j));
         g.setLevelCounter(j.getInt("levelCounter"));
         g.setPlayer(getPlayer(j));
         g.setIncorrectlyTypedWords(getIncorrectWords(j));
     }
 
+    // EFFECTS: Parses the player from the given JSONObject and returns it
     private Player getPlayer(JSONObject j) {
         Player p = new Player();
         int score = j.getJSONObject("player").getInt("score");
@@ -69,6 +69,7 @@ public class JsonReader {
         return p;
     }
 
+    // EFFECTS: Parses the incorrect words from the JSONObject and returns the list
     private ArrayList<String> getIncorrectWords(JSONObject j) {
         ArrayList<String> list = new ArrayList<String>();
         JSONArray jsonArray = j.getJSONArray("incorrectSnippet");
@@ -79,6 +80,7 @@ public class JsonReader {
         return list;
     }
 
+    // EFFECTS: Parses the CodeSnippets from the JSONObject and returns the ArrayList of them
     private ArrayList<CodeSnippet> getCodeSnippets(JSONObject j) {
         ArrayList<CodeSnippet> codeArray = new ArrayList<>();
         JSONArray array = j.getJSONArray("codeSnippets");
@@ -88,6 +90,7 @@ public class JsonReader {
         return codeArray;
     }
 
+    // EFFECTS: Parses a single CodeSnippet from the JSONObject and returns it
     private CodeSnippet getCodeSnippet(JSONObject json) {
         int x = json.getInt("x");
         int y = json.getInt("y");

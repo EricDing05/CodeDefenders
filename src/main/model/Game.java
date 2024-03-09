@@ -32,6 +32,8 @@ public class Game {
     private String outputString;
 
 
+    // Getters and setters
+
     public Player getPlayer() {
         return this.player;
     }
@@ -52,7 +54,6 @@ public class Game {
         return this.codeSnippets;
     }
 
-
     public Screen getScreen() {
         return screen;
     }
@@ -72,7 +73,6 @@ public class Game {
     public void addCodeSnippet(CodeSnippet c) {
         this.codeSnippets.add(c);
     }
-
 
     public Boolean getGameOver() {
         return gameOver;
@@ -247,6 +247,7 @@ public class Game {
         }
     }
 
+    // EFFECTS: Returns this as a JSON object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("x", this.maxX);
@@ -259,6 +260,7 @@ public class Game {
         return json;
     }
 
+    // EFFECTS: Returns this.CodeSnippets as JSON Array
     public JSONArray codeSnippetsToJson() {
         JSONArray json = new JSONArray();
         for (CodeSnippet c : this.codeSnippets) {
@@ -266,8 +268,6 @@ public class Game {
         }
         return json;
     }
-
-
 
 
 
