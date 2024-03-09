@@ -21,7 +21,6 @@ public class Game {
     private Player player;
     private ArrayList<CodeSnippet> codeSnippets;
     private final ArrayList<String> codeSnippetStrings;
-    private int level;
     private Boolean gameOver;
     private int maxX;
     private int maxY;
