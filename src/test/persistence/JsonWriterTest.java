@@ -71,7 +71,6 @@ public class JsonWriterTest {
         incorrectlyTypedWords.add("intt");
         incorrectlyTypedWords.add("Sytem.out.println(i);");
         game.setIncorrectlyTypedWords(incorrectlyTypedWords);
-
         return game;
     }
 
