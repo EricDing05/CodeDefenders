@@ -1,11 +1,14 @@
 package ui;
 
 import model.CodeSnippet;
+import model.Game;
 
 import java.util.ArrayList;
 
 public class ConsoleDisplay {
     //Represents the console display
+
+    private Game game;
 
     //EFFECTS: displays the current CodeSnippets as well as the currently typed word
     public static void displayCodeSnippets(ArrayList<CodeSnippet> codeSnippets, String s) {

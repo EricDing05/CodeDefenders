@@ -1,69 +1,12 @@
 {
-    "codeSnippets": [
-        {
-            "snippet": "a+=5;",
-            "x": 91,
-            "y": 301,
-            "speed": 7,
-            "powerUpStatus": 9
-        },
-        {
-            "snippet": "c++;",
-            "x": 168,
-            "y": 360,
-            "speed": 9,
-            "powerUpStatus": 9
-        },
-        {
-            "snippet": "c++;",
-            "x": 47,
-            "y": 680,
-            "speed": 20,
-            "powerUpStatus": 8
-        },
-        {
-            "snippet": "c++;",
-            "x": 42,
-            "y": 399,
-            "speed": 19,
-            "powerUpStatus": 2
-        },
-        {
-            "snippet": "a%=4;",
-            "x": 100,
-            "y": 152,
-            "speed": 8,
-            "powerUpStatus": 4
-        },
-        {
-            "snippet": "a/=2;",
-            "x": 139,
-            "y": 234,
-            "speed": 13,
-            "powerUpStatus": 9
-        },
-        {
-            "snippet": "c++;",
-            "x": 54,
-            "y": 72,
-            "speed": 9,
-            "powerUpStatus": 9
-        },
-        {
-            "snippet": "int a=5;",
-            "x": 137,
-            "y": 21,
-            "speed": 7,
-            "powerUpStatus": 6
-        }
-    ],
-    "x": 200,
-    "y": 6000,
-    "tickSpeed": 82,
-    "incorrectSnippet": [],
-    "levelCounter": 3,
+    "codeSnippets": [],
+    "x": 600,
+    "y": 600,
+    "tickSpeed": 47,
+    "incorrectSnippet": ["c==:"],
+    "levelCounter": 0,
     "player": {
-        "score": 0,
+        "score": 6,
         "health": 10
     }
 }
