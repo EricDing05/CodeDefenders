@@ -1,23 +1,13 @@
 package model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import ui.ConsoleDisplay;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import ui.SoundEffect;
 
-
+//Represents the CodeDefenders game
 public class Game {
-    //Represents the CodeDefenders game
 
     private Player player;
     private ArrayList<CodeSnippet> codeSnippets;
@@ -212,7 +202,6 @@ public class Game {
     public void checkGameOver() {
         if (player.getHealth() <= 0) {
             gameOver = true;
-            SoundEffect.playSound("./lib/spongebob-fail.wav");
         }
     }
 

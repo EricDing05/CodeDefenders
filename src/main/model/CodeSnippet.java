@@ -2,8 +2,8 @@ package model;
 
 import org.json.JSONObject;
 
+// Represents a single code snippet moving across the screen.
 public class CodeSnippet {
-    // Represents a single code snippet moving across the screen.
 
     private String snippet;
     private int positionX;

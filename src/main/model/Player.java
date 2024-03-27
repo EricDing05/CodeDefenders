@@ -2,8 +2,8 @@ package model;
 
 import org.json.JSONObject;
 
+// represents the player in the game
 public class Player {
-    // represents the player in the game
 
     private int health;
     private int score;

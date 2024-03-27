@@ -18,8 +18,8 @@ import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// Represents the UI handling of the user for the game
 public class TerminalGame extends JFrame {
-    // Represents the UI handling of the user for the game
     private Game game;
     private JsonReader reader;
     private JsonWriter writer;

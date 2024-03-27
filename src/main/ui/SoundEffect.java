@@ -14,7 +14,6 @@ public class SoundEffect {
     // EFFECTS: plays the sound from the given file
     public static void playSound(String filePath) {
         try {
-            // Open an audio input stream.
             File audioFile = new File(filePath);
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(audioFile);
             Clip clip = AudioSystem.getClip();

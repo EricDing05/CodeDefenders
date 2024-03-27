@@ -46,11 +46,12 @@ public class GameRenderer extends JPanel {
         drawDamage(g);
     }
 
-    // EFFECTS: Draws the game over graphics when the game is over
+    // EFFECTS: Draws the game over graphics and plays the game over sound when the game is over
     private void drawGameOver(Graphics g) {
         if (game.getGameOver()) {
             drawGameOverMessage(g);
             drawGameOverIncorrectSnippets(g);
+            SoundEffect.playSound("./lib/spongebob-fail.wav");
         }
     }
 
