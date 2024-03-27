@@ -2,11 +2,11 @@
     "codeSnippets": [],
     "x": 600,
     "y": 600,
-    "tickSpeed": 47,
+    "tickSpeed": 142,
     "incorrectSnippet": ["c==:"],
-    "levelCounter": 0,
+    "levelCounter": 5,
     "player": {
-        "score": 6,
+        "score": 10,
         "health": 10
     }
 }

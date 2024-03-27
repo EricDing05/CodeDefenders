@@ -45,7 +45,9 @@ public class TerminalGame extends JFrame {
         while (!game.getGameOver()) {
             frame.requestFocusInWindow();
             game.checkGameOver();
-            game.tick(40);
+            if (game.tick(40)) {
+                renderer.takeDamage();
+            }
             renderer.repaint();
             Thread.sleep(300L);
             game.incrementDifficulty();
@@ -54,6 +56,8 @@ public class TerminalGame extends JFrame {
         renderer.repaint();
     }
 
+
+    // EFFECTS: Creates and initializes the JFrame
     private void initFrame() {
         this.frame = new JFrame("CodeDefenders");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,9 +81,6 @@ public class TerminalGame extends JFrame {
     // MODIFIES: game
     // EFFECTS: take the input read from pollInput and processes it
     public void handleInput(int keyCode, char character) {
-//        if (input == ']') {
-//            return;
-//        }
 
         if (keyCode == KeyEvent.VK_SHIFT) {
             return;
@@ -96,24 +97,6 @@ public class TerminalGame extends JFrame {
             return;
         }
         game.setOutputString(game.getOutputString() + character);
-    }
-
-    //EFFECTS: reads user input from the screen
-    public static char pollInput(Screen s) throws IOException {
-        KeyStroke k = s.pollInput();
-
-        if (k == null || k.getCharacter() == null) {
-            return ']';
-        }
-        if (k.getKeyType() == KeyType.Backspace) {
-            return '[';
-        }
-        if (k.getKeyType() == KeyType.Enter) {
-            return '`';
-        }
-
-        char c = k.getCharacter();
-        return c;
     }
 
     //MODIFIES: game
@@ -146,7 +129,10 @@ public class TerminalGame extends JFrame {
         }
     }
 
+    // Represents a KeyHandler to detect user input
+    // Credit to SpaceInvaders for the idea
     private class KeyHandler extends KeyAdapter {
+        // EFFECTS: Detects key input and call handleInput() to parse it
         @Override
         public void keyPressed(KeyEvent e) {
             handleInput(e.getKeyCode(), e.getKeyChar());

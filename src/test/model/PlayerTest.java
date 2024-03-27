@@ -18,21 +18,21 @@ public class PlayerTest {
 
     @Test
     public void testGetHealth() {
-        assertEquals(10, player.getHealth());
+        assertEquals(100, player.getHealth());
     }
 
     @Test
     public void testSetHealth() {
-        assertEquals(10, player.getHealth());
+        assertEquals(100, player.getHealth());
         player.setHealth(100);
         assertEquals(100, player.getHealth());
     }
 
     @Test
     public void testTakeDamage() {
-        assertEquals(10, player.getHealth());
+        assertEquals(100, player.getHealth());
         player.takeDamage();
-        assertEquals(0, player.getHealth());
+        assertEquals(90, player.getHealth());
 
     }
 

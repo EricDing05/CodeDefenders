@@ -170,7 +170,6 @@ public class GameTest {
         list.add("b=!true;");
         list.add("c='A';");
         list.add("c++;");
-        list.add("f=1.5f;");
         list.add("if (x > y) return x;");
         list.add("int sum = a + b;");
         list.add("list.add(1);");
@@ -178,8 +177,8 @@ public class GameTest {
         list.add("stack.push(10);");
         list.add("boolean flag = false;");
         list.add("list.remove(0);");
-        list.add("n /= 3;");
-        list.add("x %= 4;");
+        list.add("n/=3;");
+        list.add("x%=4;");
         assertEquals(list, game.initializeCodeSnippets());
     }
 
@@ -188,7 +187,7 @@ public class GameTest {
         CodeSnippet c = new CodeSnippet(10, 10, 10, "eric", 1);
         game.addCodeSnippet(c);
         int originalPosition = c.getPositionY();
-        assertEquals(10, game.getPlayer().getHealth());
+        assertEquals(100, game.getPlayer().getHealth());
         game.tick(1);
         assertEquals(c.getPositionY(), originalPosition + c.getSpeed());
     }
@@ -198,7 +197,7 @@ public class GameTest {
         CodeSnippet c = new CodeSnippet(10, 210, 10, "eric", 1);
         game.addCodeSnippet(c);
         game.tick(1);
-        assertEquals(game.getPlayer().getHealth(), 0);
+        assertEquals(game.getPlayer().getHealth(), 90);
         assertEquals(game.getCodeSnippets().size(), 1);
         assertFalse(game.getCodeSnippets().contains(c));
     }
@@ -246,7 +245,7 @@ public class GameTest {
         assertEquals(10, json.getInt("tickSpeed"));
         assertEquals(0, json.getInt("levelCounter"));
         JSONObject jsonPlayer = json.getJSONObject("player");
-        assertEquals(10, jsonPlayer.getInt("health"));
+        assertEquals(100, jsonPlayer.getInt("health"));
         assertEquals(0, jsonPlayer.getInt("score"));
         JSONArray jsonSnippets = json.getJSONArray("codeSnippets");
         JSONArray jsonIncorrectWords = json.getJSONArray("incorrectSnippet");

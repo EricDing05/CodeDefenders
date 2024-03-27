@@ -11,7 +11,7 @@ public class Player {
 
     // EFFECTS: Creates a player with 10 health and 0 score.
     public Player() {
-        this.health = 10;
+        this.health = 100;
         this.score = 0;
     }
 

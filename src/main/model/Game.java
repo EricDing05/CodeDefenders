@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import ui.SoundEffect;
 
 
 public class Game {
@@ -105,9 +106,6 @@ public class Game {
         this.codeSnippets = codeSnippets;
     }
 
-    public void setGameOver() {
-        this.gameOver = true;
-    }
 
 
 
@@ -131,17 +129,20 @@ public class Game {
     //MODIFIES: this, player
     //EFFECTS: spawns a new CodeSnippet with 1/odds of spawning. Any code snippets that reach the end damage
     // the player and are removed.
-    public void tick(int spawningOdds) {
+    public boolean tick(int spawningOdds) {
+        boolean damage = false;
         generateCodeSnippetRandomly(spawningOdds);
         ArrayList<CodeSnippet> toBeRemoved = new ArrayList<CodeSnippet>();
         for (CodeSnippet c : codeSnippets) {
             if (c.reachedEnd(maxY)) {
                 player.takeDamage();
                 toBeRemoved.add(c);
+                damage = true;
             }
             c.move();
         }
         codeSnippets.removeAll(toBeRemoved);
+        return damage;
     }
 
     //EFFECTS: generates a new code snippet at y=0, with random x position in range [0,maxX]
@@ -172,7 +173,6 @@ public class Game {
         list.add("b=!true;");
         list.add("c='A';");
         list.add("c++;");
-        list.add("f=1.5f;");
         list.add("if (x > y) return x;");
         list.add("int sum = a + b;");
         list.add("list.add(1);");
@@ -180,8 +180,8 @@ public class Game {
         list.add("stack.push(10);");
         list.add("boolean flag = false;");
         list.add("list.remove(0);");
-        list.add("n /= 3;");
-        list.add("x %= 4;");
+        list.add("n/=3;");
+        list.add("x%=4;");
 
         return list;
     }
@@ -202,7 +202,7 @@ public class Game {
     public void generateCodeSnippetRandomly(int odds) {
         int chanceOfSpawning = ((int) (Math.random() * (odds)));
         if (chanceOfSpawning <= 1) {
-            CodeSnippet c = generateCodeSnippet(this.maxX, 10, 10, 10);
+            CodeSnippet c = generateCodeSnippet(this.maxX, 10, 10, 18);
             this.codeSnippets.add(c);
         }
     }
@@ -212,6 +212,7 @@ public class Game {
     public void checkGameOver() {
         if (player.getHealth() <= 0) {
             gameOver = true;
+            SoundEffect.playSound("./lib/spongebob-fail.wav");
         }
     }
 
