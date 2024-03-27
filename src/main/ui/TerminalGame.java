@@ -29,6 +29,8 @@ public class TerminalGame extends JFrame {
     private JFrame frame;
 
 
+    // REQUIRES: x,y and tickSpeed all > 0
+    // EFFECTS: Creates an instance of the terminal game
     public TerminalGame(int x, int y, long tickSpeed) {
         this.game = new Game(x, y, tickSpeed);
         this.reader = new JsonReader(JSON_STORE);
@@ -122,6 +124,7 @@ public class TerminalGame extends JFrame {
         addWordIfNotCorrect(isCorrect, s);
     }
 
+    // MODIFIES: Game
     // EFFECTS: adds a word to the list of incorrect words if it is not correct
     private void addWordIfNotCorrect(Boolean b, String s) {
         if (!b) {
