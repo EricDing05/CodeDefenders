@@ -170,8 +170,8 @@ public class GameTest {
         list.add("b=!true;");
         list.add("c='A';");
         list.add("c++;");
-        list.add("if (x > y) return x;");
-        list.add("int sum = a + b;");
+        list.add("if (x>y) return x;");
+        list.add("int sum = a+b;");
         list.add("list.add(1);");
         list.add("for (int i=0; i<5; i++) {}");
         list.add("stack.push(10);");

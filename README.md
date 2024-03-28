@@ -26,3 +26,10 @@ This project is of interest to me as I want to get better at typing, and some ex
 - As a user, I would like to be able to load from a previous save
 - As a user, I would like to see power-ups that adds a layer of strategy and user engagement.
 
+## Instructions for Grader
+- You can generate the first user story by typing one of the words and removing them
+- You can generate the second user story by typing a word that is red and removing all X's from the Y
+- You can locate my visual component by looking at any of the words on the screen
+- You can save the state of my application by pressing the "save" button at the top of the screen
+- You can reload the state of my application by pressing the "load" button at the top of the screen
+
