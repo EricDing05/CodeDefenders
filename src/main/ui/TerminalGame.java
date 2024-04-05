@@ -6,17 +6,17 @@ import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.screen.Screen;
 import model.CodeSnippet;
+import model.Event;
+import model.EventLog;
 import model.Game;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 // Represents the UI handling of the user for the game
 public class TerminalGame extends JFrame {
@@ -77,6 +77,7 @@ public class TerminalGame extends JFrame {
         renderer.add(saveButton);
         renderer.add(loadButton);
         frame.addKeyListener(this.keyHandler);
+        addWindowListener();
     }
 
 
@@ -165,4 +166,17 @@ public class TerminalGame extends JFrame {
         }
 
     }
+
+    private void addWindowListener() {
+        WindowAdapter adapter = new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString());
+                }
+            }
+        };
+        frame.addWindowListener(adapter);
+    }
+
 }

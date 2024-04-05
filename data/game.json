@@ -1,39 +1,35 @@
 {
     "codeSnippets": [
         {
-            "snippet": "c++;",
-            "x": 375,
-            "y": 120,
-            "speed": 12,
+            "snippet": "b=!true;",
+            "x": 240,
+            "y": 230,
+            "speed": 5,
             "powerUpStatus": 1
         },
         {
-            "snippet": "c++;",
-            "x": 94,
-            "y": 63,
-            "speed": 9,
-            "powerUpStatus": 6
-        },
-        {
-            "snippet": "int a=5;",
-            "x": 253,
-            "y": 30,
-            "speed": 6,
-            "powerUpStatus": 3
+            "snippet": "a%=4;",
+            "x": 81,
+            "y": 396,
+            "speed": 11,
+            "powerUpStatus": 8
         }
     ],
     "x": 600,
     "y": 600,
-    "tickSpeed": 172,
+    "tickSpeed": 602,
     "incorrectSnippet": [
         "a*=3",
         "if (x>y) return x;",
         "b =!true;",
-        "c='A;"
+        "c='A;",
+        "a*=4;",
+        "int sium = a + b;",
+        "int sum =a+b;"
     ],
-    "levelCounter": 7,
+    "levelCounter": 5,
     "player": {
-        "score": 18,
-        "health": 80
+        "score": 71,
+        "health": 40
     }
 }

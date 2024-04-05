@@ -209,12 +209,16 @@ public class Game {
     //EFFECTS: clears all code snippets
     public void clearCodeSnippets() {
         codeSnippets.clear();
+        Event e = new Event("Cleared all snippets!");
+        EventLog.getInstance().logEvent(e);
     }
 
     //MODIFIES: this
     //EFFECTS: removes CodeSnippet c from the current list of code snippets.
     public void removeCodeSnippet(CodeSnippet c) {
         codeSnippets.remove(c);
+        Event e = new Event("Killed snippet: " + c.getString());
+        EventLog.getInstance().logEvent(e);
     }
 
     //MODIFIES: this
@@ -238,6 +242,8 @@ public class Game {
         for (CodeSnippet c : this.codeSnippets) {
             c.freeze();
         }
+        Event e = new Event("Froze all snippets!");
+        EventLog.getInstance().logEvent(e);
     }
 
     // EFFECTS: Returns this as a JSON object
