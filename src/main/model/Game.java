@@ -18,7 +18,6 @@ public class Game {
     private long tickSpeed;
     private ArrayList<String> incorrectlyTypedWords;
     private int levelCounter;
-    private Screen screen;
     private String outputString;
 
 
@@ -42,14 +41,6 @@ public class Game {
 
     public ArrayList<CodeSnippet> getCodeSnippets() {
         return this.codeSnippets;
-    }
-
-    public Screen getScreen() {
-        return screen;
-    }
-
-    public void setScreen(Screen screen) {
-        this.screen = screen;
     }
 
     public String getOutputString() {

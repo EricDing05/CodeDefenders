@@ -221,20 +221,6 @@ public class GameTest {
         assertEquals(0, testCodeSnippet2.getSpeed());
     }
 
-    @Test
-    public void testSetAndGetScreen() {
-        Screen test = null;
-        try {
-            test = new DefaultTerminalFactory()
-                    .setPreferTerminalEmulator(false)
-                    .setInitialTerminalSize(new TerminalSize(100, 40))
-                    .createScreen();
-        } catch (IOException e) {
-            fail();
-        }
-        game.setScreen(test);
-        assertEquals(test, game.getScreen());
-    }
 
     @Test
     public void testToJson() {

@@ -28,7 +28,10 @@ public class EventTest {
     @Test
     public void testEvent() {
         assertEquals("Killed c++;", e.getDescription());
-        // assertEquals(d, e.getDate());
+        assertEquals(d.getDay(), e.getDate().getDay());
+        assertEquals(d.getMonth(), e.getDate().getMonth());
+        assertEquals(d.getYear(), e.getDate().getYear());
+        assertEquals(d.getHours(), e.getDate().getHours());
     }
 
     @Test
