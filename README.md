@@ -33,3 +33,24 @@ This project is of interest to me as I want to get better at typing, and some ex
 - You can save the state of my application by pressing the "save" button at the top of the screen
 - You can reload the state of my application by pressing the "load" button at the top of the screen
 
+## Phase 4: Task 2
+Sample console output: \
+Sat Apr 06 20:47:29 PDT 2024 \
+Killed snippet: list.add(1); \
+Sat Apr 06 20:47:35 PDT 2024 \
+Killed snippet: list.remove(0); \
+Sat Apr 06 20:47:38 PDT 2024 \
+Froze all snippets! \
+Sat Apr 06 20:47:38 PDT 2024 \
+Killed snippet: n/=3; \
+Sat Apr 06 20:47:47 PDT 2024 \
+Cleared all snippets!\
+
+## Phase 4: Task 3
+Given the design in of my project in my UML diagram, I definitely think I could have followed object-orientated design practices a little better.
+A particularly bad class is my Game class, which certainty violates the Single Responsibility Principal. That single class is responsible for managing all aspects of the game.
+A major refactoring step I would take would be to create a "CodeSnippetManager" class that would take a lot of the responsibility away from the game class. I would also have my Game,
+Player, and CodeSnippet class extend a new interface "Writable" which would have a toJson() method. Many of my methods were also very long and hard to read. I would re-factor many of the longer
+methods with private helpers to improve readability. The fact that not a single class extends or implements anything (Other than built in Java classes)
+is certainly a red flag that my design was not very well-thought-out. I am ok with this however, as this was my first experience with Java and Object Orientation and this project was a learning experience.
+
