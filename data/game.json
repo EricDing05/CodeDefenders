@@ -1,35 +1,22 @@
 {
-    "codeSnippets": [
-        {
-            "snippet": "b=!true;",
-            "x": 240,
-            "y": 230,
-            "speed": 5,
-            "powerUpStatus": 1
-        },
-        {
-            "snippet": "a%=4;",
-            "x": 81,
-            "y": 396,
-            "speed": 11,
-            "powerUpStatus": 8
-        }
-    ],
+    "codeSnippets": [{
+        "snippet": "for (int i=0; i<5; i++) {}",
+        "x": 335,
+        "y": 63,
+        "speed": 7,
+        "powerUpStatus": 3
+    }],
     "x": 600,
     "y": 600,
-    "tickSpeed": 602,
+    "tickSpeed": 112,
     "incorrectSnippet": [
-        "a*=3",
-        "if (x>y) return x;",
-        "b =!true;",
-        "c='A;",
-        "a*=4;",
-        "int sium = a + b;",
-        "int sum =a+b;"
+        "int sum =a+b;",
+        "n=/3;",
+        "n/3;"
     ],
-    "levelCounter": 5,
+    "levelCounter": 4,
     "player": {
-        "score": 71,
-        "health": 40
+        "score": 6,
+        "health": 80
     }
 }
